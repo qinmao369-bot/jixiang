@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://auspicious-wedding-calendar.qinmao629.chatgpt.site/sitemap.xml
+Sitemap: https://jixiang1.vercel.app/sitemap.xml
