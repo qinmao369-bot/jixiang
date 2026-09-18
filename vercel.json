@@ -1,5 +1,12 @@
 {
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/huangli/2026-09-18",
+      "destination": "/huangli?date=2026-09-18",
+      "permanent": true
+    }
+  ]
 }

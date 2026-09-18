@@ -38,7 +38,7 @@
     document.querySelector('#extra-almanac').innerHTML = `<div><b>${t('建除十二神','Day officer')}</b>${tr(moon.getZhiXing()+'日')}</div><div><b>${t('今日胎神','Fetal deity')}</b>${tr(moon.getDayPositionTai())}</div><div><b>${t('二十八星宿','Lunar mansion')}</b>${tr(moon.getXiu()+'宿 · '+moon.getXiuLuck())}</div>`;
     hourList.innerHTML = moon.getTimes().map(hour=>`<article class="hour"><span class="round">${tr(hour.getZhi())}</span><div><strong>${tr(hour.getGanZhi())}${t('时',' hour')}　${hour.getMinHm()}–${hour.getMaxHm()}</strong>　${tr('冲'+hour.getChongDesc()+'，煞'+hour.getSha())}　<span class="pill ${hour.getTianShenLuck()==='吉'?'yi':'ji'}">${tr(hour.getTianShenLuck())}</span><small>${tr('喜神'+hour.getPositionXiDesc()+' · 财神'+hour.getPositionCaiDesc()+' · 福神'+hour.getPositionFuDesc())}</small><small>${t('宜','Suitable')} ${list(hour.getYi())}</small><small>${t('忌','Avoid')} ${list(hour.getJi())}</small></div></article>`).join('');
     document.querySelector('.back').href='/?date='+key(date);
-    history.replaceState(null,'','?date='+key(date));
+    if (location.search || key(date) !== '2026-09-18') history.replaceState(null,'','?date='+key(date));
   }
   document.querySelector('.back').textContent=t('‹ 返回万年历','‹ Back to calendar');
   document.querySelector('#detail-date-label').textContent=t('公历日期','Gregorian date');

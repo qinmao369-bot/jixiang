@@ -42,7 +42,7 @@
     const status = holidays.checked ? holiday(date) : null;
     const statusText = status ? (status.isWork() ? (english ? 'Mainland China make-up workday' : translate('中国大陆补班')) : (english ? 'Mainland China holiday' : translate('中国大陆' + status.getName() + '假期'))) : '';
     const title = english ? `${date.toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})} · ${date.toLocaleDateString('en-US',{weekday:'long'})}` : translate(`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日　周${week[date.getDay()]}`);
-    summary.href = '/huangli/?date=' + dateKey(date);
+    summary.href = '/huangli?date=' + dateKey(date);
     summary.innerHTML = `<div class="cal-summary-title"><span>${title}</span><span>${english ? 'View almanac' : translate('查看黄历详情')} ›</span></div><div class="cal-summary-body"><div class="cal-lunar"><strong>${translate(moon.getMonthInChinese() + '月' + moon.getDayInChinese())}</strong><small>${translate(moon.getYearInGanZhi() + '年 · ' + moon.getYearShengXiao())}${event ? ' · ' + event : ''}${statusText ? ' · ' + statusText : ''}</small></div><div class="cal-yi-ji"><div><b class="yi">${english ? 'Suitable' : translate('宜')}</b>${translate(moon.getDayYi().slice(0, 8).join(' · '))}</div><div><b class="ji">${english ? 'Avoid' : translate('忌')}</b>${translate(moon.getDayJi().slice(0, 8).join(' · '))}</div></div></div>`;
   }
   function render() {
